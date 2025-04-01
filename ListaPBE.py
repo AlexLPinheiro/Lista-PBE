@@ -177,5 +177,27 @@ else:
 print(f"A temperatura em {temperatura}° está {classificacao}")
 '''
 
+#Exercício14
+'''
+data = input("Digite a data no formato dd/mm/aaaa: ")
+dataConvertida = f"{data[:2]}-{data[3:5]}-{data[6:10]}"
+print(dataConvertida)
+'''
+
+#Exercício15
+
+
+#Exercício16
+
+'''
+numero = int(input("Digite um número: "))
+if numero < 0:
+    print("Não existe raiz de número negativo!")
+elif numero >100:
+    print("Número muito grande, reduza para um valor abaixo de 100")
+raiz = numero**1/2
+'''
+
+
 
 
