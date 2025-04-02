@@ -119,6 +119,9 @@ if ano % 4 == 0 and ano % 100 == 0:
         print("É bissexto")
     else:
         print("Não é bissexto")
+ 
+elif ano % 4 !=0:
+    print("Não é bissexto")
 else:
     print("É bissexto")
 '''
@@ -237,8 +240,10 @@ else:
 '''
 
 #Exercicio17
-'''
+
+'''from datetime import datetime
 import re
+
 data = input("Digite a data dd/mm/aaaa:\n")
 dataNum = f"{data[:2]} {data[3:5]} {data[6:len(data)]}"
 dia = data[:2]
@@ -257,8 +262,10 @@ else:
             ehBissexto = True
         else:
             ehBissexto = False
+    elif ano % 4 != 0:
+        ehBissexto = False
     else:
-        ehBissexto = True
+        ehBissexto= True
 
     if 1 <= mes <= 12:
         if ehBissexto:
@@ -284,7 +291,60 @@ else:
         print("Digite um mês de 1 a 12!!!")
         ehCorreto = False
 if ehCorreto:
-    dataConvertida = f"{dia}-{mes}-{ano}"
+    data = datetime(ano,mes,dia)
+    dataConvertida=data.strftime("%d-%m-%Y")
     print(dataConvertida)
+'''
 
+#Exercício18
+
+'''operacao = input("Digite a operação: ")
+resultado = eval(operacao)
+
+print(f"{operacao} = {resultado:.2f}")'''
+
+#Exercício19
+
+'''import re
+
+cpf = input("Digite seu CPF: 000.000.000-00\n")
+ehValido = True
+
+if re.match(r'^\d{3}\.\d{3}\.\d{3}-\d{2}$',cpf):
+
+    cpfNum = f"{cpf[:3]}{cpf[4:7]}{cpf[8:11]}{cpf[12:14]}"
+    listaNum = []
+    for el in cpfNum:
+        listaNum.append(int(el))
+
+    primeiroDigito = ((listaNum[0]*10)+(listaNum[1]*9)+(listaNum[2]*8)+(listaNum[3]*7)+(listaNum[4]*6)+(listaNum[5]*5)+(listaNum[6]*4)+(listaNum[7]*3)+(listaNum[8]*2))
+    segundoDigito  = ((listaNum[0]*11)+(listaNum[1]*10)+(listaNum[2]*9)+(listaNum[3]*8)+(listaNum[4]*7)+(listaNum[5]*6)+(listaNum[6]*5)+(listaNum[7]*4)+(listaNum[8]*3)+(listaNum[9]*2))
+    if len(cpfNum) == 11:
+    
+        
+        if primeiroDigito % 11 <2:
+            if listaNum[9] !=0:
+                ehValido = False
+        else:
+            resto1 = primeiroDigito % 11 
+            if listaNum[9] != abs(resto1 - 11):
+                ehValido = False
+
+        if segundoDigito % 11 < 2:
+            if listaNum[10] !=0:
+                ehValido = False
+        else:
+            
+            resto2 = segundoDigito % 11 
+            if listaNum[10] != abs(resto2 - 11):
+                ehValido = False
+    else:
+        ehValido = False
+else:
+    ehValido = False
+
+if ehValido == True:
+    print("O CPF é válido!")
+else:
+    print("O CPF não é válido!")
 '''
